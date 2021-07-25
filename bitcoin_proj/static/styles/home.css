@@ -1,0 +1,13 @@
+body {
+    margin: 0px;
+    background: url('/static/bitcoin.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+
+}
+
+#accuracy {
+    display: none;
+    font-size: 35px ;
+}

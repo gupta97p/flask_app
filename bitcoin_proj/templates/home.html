@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>BitCoin value predictor</title>
+    <link rel="stylesheet" href= "{{ url_for('static',filename='styles/home.css') }}" type= "text/css" />
+  </head>
+  <body >
+    <div>
+      <div >
+        <h1 style="text-align: center; font-size: 40px"> Bit coin Predictor</h1>
+        <p style="text-align: center; "> This predector is created for the sole purpose to provide benifits to its users. <br> Our predictions can not be 100% correct everytime, hence all the risk is yours and you are the sole responsible for any loss. </p>
+      </div>
+      <div style="margin-top:5px; margin-left: 30px;">
+        <br>
+        Please select the period for predictions:- <br><br>
+        <input type="radio" id="day" ><label >Next Day</label>
+        <input type="radio" id="month" ><label >Next Month</label>
+        <input type="radio" id="year" ><label >Next Year</label>
+        <br> <br>
+
+        <button type="button" onclick="predict()"> Predict</button>
+      </div>
+      <div style="margin-left: 40px;">
+        <p>Predicted value for bitcoin for selected period will be</p>
+        <img src="/static/bitcoin.jpeg" style="display: none;" id="resultant_image" width="400" height="250">
+        <p id="accuracy">Accuracy : {{ accuracy }}%</p>
+      </div>
+      <script>
+        function predict() {
+          if(document.getElementById('day').checked){
+            document.getElementById('resultant_image').style.display = 'block';
+            document.getElementById('resultant_image').src = "static/lstm_btc_pred.png"
+            document.getElementById('day').checked = false
+            document.getElementById('accuracy').style.display = 'block';
+          }
+          if(document.getElementById('month').checked){
+            document.getElementById('resultant_image').src = "static/lstm_btc_pred.png"
+            document.getElementById('resultant_image').style.display = 'block';
+            document.getElementById('month').checked=false
+            document.getElementById('accuracy') =  accuracy
+          }
+          if(document.getElementById('year').checked){
+            document.getElementById('resultant_image').src = "static/lstm_btc_pred_year.png"
+            document.getElementById('resultant_image').style.display = 'block';
+            document.getElementById('year').checked = false
+            document.getElementById('accuracy').innerText =  accuracy
+          } 
+        }
+      </script>
+  </body>
+</html>
+
